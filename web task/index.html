@@ -1,0 +1,1108 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Digital Portal</title>
+<link rel="icon" type="image/x-icon" href="download (1).png">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#07111f,#12395a,#07111f);
+    color:white;
+    transition:0.5s;
+}
+
+/* HEADER */
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 7%;
+    position:sticky;
+    top:0;
+    z-index:10;
+    background:rgba(0,0,0,0.45);
+    backdrop-filter:blur(10px);
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+    color:#00e5ff;
+}
+
+nav button{
+    padding:9px 15px;
+    margin:4px;
+    border:1px solid #00e5ff;
+    border-radius:20px;
+    background:transparent;
+    color:white;
+    cursor:pointer;
+}
+
+nav button:hover{
+    background:#00e5ff;
+    color:black;
+}
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:70px 20px 40px;
+}
+
+.hero h1{
+    font-size:48px;
+}
+
+.hero h1 span{
+    color:#00e5ff;
+}
+
+.hero p{
+    margin-top:15px;
+    color:#ccc;
+    font-size:18px;
+}
+
+/* CARDS */
+
+.features{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+    margin:35px auto;
+    width:90%;
+}
+
+.feature{
+    width:220px;
+    padding:25px;
+    text-align:center;
+    border-radius:18px;
+    background:rgba(255,255,255,0.08);
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    transition:0.3s;
+}
+
+.feature:hover{
+    transform:translateY(-8px);
+}
+
+.feature h3{
+    color:#00e5ff;
+    margin-bottom:10px;
+}
+
+/* CONTAINER */
+
+.container{
+    width:90%;
+    max-width:800px;
+    margin:auto;
+}
+
+.card{
+    background:rgba(255,255,255,0.10);
+    padding:30px;
+    border-radius:20px;
+    margin:30px 0;
+    box-shadow:0 10px 35px rgba(0,0,0,0.3);
+}
+
+.card h2{
+    color:#00e5ff;
+    margin-bottom:20px;
+}
+
+/* INPUT */
+
+input,select,textarea{
+    width:100%;
+    padding:13px;
+    margin:7px 0 15px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+}
+
+textarea{
+    height:120px;
+    resize:none;
+}
+
+/* BUTTON */
+
+.mainbtn{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#00e5ff;
+    color:#00151c;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.mainbtn:hover{
+    background:#00bcd4;
+}
+
+/* PASSWORD */
+
+.passwordBox{
+    position:relative;
+}
+
+.showBtn{
+    position:absolute;
+    right:10px;
+    top:14px;
+    border:none;
+    background:none;
+    color:#008c9e;
+    cursor:pointer;
+}
+
+/* STRENGTH */
+
+#strength{
+    font-size:13px;
+    margin-top:-8px;
+    margin-bottom:12px;
+}
+
+/* MESSAGE */
+
+.message{
+    display:none;
+    margin-top:15px;
+    padding:12px;
+    border-radius:10px;
+    text-align:center;
+}
+
+.success{
+    background:#087f5b;
+}
+
+.error{
+    background:#a93232;
+}
+
+/* PROFILE */
+
+.profile{
+    display:none;
+    text-align:center;
+}
+
+.profileCircle{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    background:#00e5ff;
+    color:#00151c;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:auto;
+    font-size:30px;
+    font-weight:bold;
+}
+
+.profile h2{
+    margin:15px;
+}
+
+.info{
+    margin:8px;
+    color:#ddd;
+}
+
+/* PROGRESS */
+
+.progressBox{
+    margin:15px 0;
+}
+
+.progress{
+    height:10px;
+    background:#333;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.progress div{
+    height:100%;
+    background:#00e5ff;
+}
+
+/* RATING */
+
+.stars{
+    display:flex;
+    gap:8px;
+    margin:10px 0 20px;
+}
+
+.star{
+    font-size:30px;
+    cursor:pointer;
+    color:#555;
+}
+
+.star.active{
+    color:#ffd700;
+}
+
+/* COUNTER */
+
+.counter{
+    text-align:right;
+    font-size:12px;
+    color:#bbb;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#aaa;
+}
+
+/* LIGHT MODE */
+
+.light{
+    background:linear-gradient(135deg,#e8f8ff,#ffffff);
+    color:#111;
+}
+
+.light .card,
+.light .feature{
+    background:rgba(0,0,0,0.06);
+}
+
+.light header{
+    background:rgba(255,255,255,0.8);
+}
+
+.light nav button{
+    color:#111;
+}
+
+.light .info{
+    color:#333;
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+<div class="logo">🚀 EduNova</div>
+
+<nav>
+
+<button onclick="goTo('home')">Home</button>
+
+<button onclick="goTo('register')">Register</button>
+
+<button onclick="goTo('login')">Login</button>
+
+<button onclick="goTo('feedback')">Feedback</button>
+
+<button onclick="changeTheme()">🌙</button>
+
+</nav>
+
+</header>
+
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+
+<h1>Welcome to <span>EduNova</span></h1>
+
+<p>Learn • Practice • Improve • Succeed</p>
+
+<div class="features">
+
+<div class="feature">
+<h3>📝 Register</h3>
+<p>Create your student profile.</p>
+</div>
+
+<div class="feature">
+<h3>🔐 Login</h3>
+<p>Enter your learning portal.</p>
+</div>
+
+<div class="feature">
+<h3>⭐ Feedback</h3>
+<p>Share your experience.</p>
+</div>
+
+<div class="feature">
+<h3>📊 Skills</h3>
+<p>Track your progress.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<div class="container">
+
+
+<!-- REGISTRATION -->
+
+<div class="card" id="register">
+
+<h2>📝 Student Registration</h2>
+
+<form id="registerForm">
+
+<input type="text"
+id="regName"
+placeholder="👤 Enter your name">
+
+<input type="email"
+id="regEmail"
+placeholder="📧 Enter email">
+
+<div class="passwordBox">
+
+<input type="password"
+id="regPassword"
+placeholder="🔑 Create password">
+
+<button type="button"
+class="showBtn"
+onclick="showPassword('regPassword')">
+👁
+</button>
+
+</div>
+
+<div id="strength"></div>
+
+<div class="passwordBox">
+
+<input type="password"
+id="regConfirm"
+placeholder="🔐 Confirm password">
+
+<button type="button"
+class="showBtn"
+onclick="showPassword('regConfirm')">
+👁
+</button>
+
+</div>
+
+<select id="course">
+
+<option value="">🎓 Select Course</option>
+<option>BCA</option>
+<option>B.Sc Computer Science</option>
+<option>B.Com</option>
+<option>BBA</option>
+
+</select>
+
+<button class="mainbtn">
+Create Account 🚀
+</button>
+
+<div id="regMsg" class="message"></div>
+
+</form>
+
+</div>
+
+
+<!-- PROFILE -->
+
+<div class="card profile" id="profile">
+
+<div class="profileCircle" id="profileLetter">S</div>
+
+<h2 id="profileName">Student</h2>
+
+<div class="info" id="profileEmail"></div>
+
+<div class="info" id="profileCourse"></div>
+
+<h3 style="margin-top:25px;color:#00e5ff;">
+📊 Skill Progress
+</h3>
+
+<div class="progressBox">
+HTML
+<div class="progress">
+<div style="width:85%"></div>
+</div>
+</div>
+
+<div class="progressBox">
+CSS
+<div class="progress">
+<div style="width:75%"></div>
+</div>
+</div>
+
+<div class="progressBox">
+JavaScript
+<div class="progress">
+<div style="width:65%"></div>
+</div>
+</div>
+
+<button class="mainbtn"
+onclick="logout()"
+style="margin-top:20px;">
+Logout
+</button>
+
+</div>
+
+
+<!-- LOGIN -->
+
+<div class="card" id="login">
+
+<h2>🔐 Student Login</h2>
+
+<form id="loginForm">
+
+<input type="email"
+id="loginEmail"
+placeholder="📧 Email">
+
+<div class="passwordBox">
+
+<input type="password"
+id="loginPassword"
+placeholder="🔑 Password">
+
+<button type="button"
+class="showBtn"
+onclick="showPassword('loginPassword')">
+👁
+</button>
+
+</div>
+
+<button class="mainbtn">
+Login 🚀
+</button>
+
+<div id="loginMsg" class="message"></div>
+
+</form>
+
+</div>
+
+
+<!-- FEEDBACK -->
+
+<div class="card" id="feedback">
+
+<h2>💬 Student Feedback</h2>
+
+<form id="feedbackForm">
+
+<input type="text"
+id="feedName"
+placeholder="👤 Your name">
+
+<label>⭐ Rate your experience</label>
+
+<div class="stars">
+
+<span class="star" onclick="rate(1)">★</span>
+<span class="star" onclick="rate(2)">★</span>
+<span class="star" onclick="rate(3)">★</span>
+<span class="star" onclick="rate(4)">★</span>
+<span class="star" onclick="rate(5)">★</span>
+
+</div>
+
+<textarea
+id="comments"
+maxlength="150"
+placeholder="✍️ Write your feedback..."></textarea>
+
+<div class="counter">
+<span id="count">0</span>/150
+</div>
+
+<button class="mainbtn">
+Submit Feedback 💙
+</button>
+
+<div id="feedMsg" class="message"></div>
+
+</form>
+
+</div>
+
+</div>
+
+
+<footer>
+
+© 2026 EduNova| Student Digital Portal 🚀
+
+</footer>
+
+
+<script>
+
+/* =================================
+   NAVIGATION EVENT
+================================= */
+
+function goTo(id){
+
+    document.getElementById(id)
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =================================
+   DARK / LIGHT MODE
+================================= */
+
+function changeTheme(){
+
+    document.body.classList.toggle("light");
+
+}
+
+
+/* =================================
+   SHOW / HIDE PASSWORD
+================================= */
+
+function showPassword(id){
+
+    let password =
+    document.getElementById(id);
+
+    if(password.type === "password"){
+
+        password.type = "text";
+
+    }
+    else{
+
+        password.type = "password";
+
+    }
+
+}
+
+
+/* =================================
+   PASSWORD STRENGTH
+================================= */
+
+document.getElementById("regPassword")
+.addEventListener("input",function(){
+
+    let password = this.value;
+
+    let strength =
+    document.getElementById("strength");
+
+    if(password.length === 0){
+
+        strength.innerHTML = "";
+
+    }
+
+    else if(password.length < 6){
+
+        strength.innerHTML =
+        "🔴 Weak Password";
+
+        strength.style.color="red";
+
+    }
+
+    else if(password.length < 10){
+
+        strength.innerHTML =
+        "🟡 Medium Password";
+
+        strength.style.color="orange";
+
+    }
+
+    else{
+
+        strength.innerHTML =
+        "🟢 Strong Password";
+
+        strength.style.color="lightgreen";
+
+    }
+
+});
+
+
+/* =================================
+   REGISTRATION VALIDATION
+================================= */
+
+document.getElementById("registerForm")
+.addEventListener("submit",function(event){
+
+    event.preventDefault();
+
+    let name =
+    document.getElementById("regName").value.trim();
+
+    let email =
+    document.getElementById("regEmail").value.trim();
+
+    let password =
+    document.getElementById("regPassword").value;
+
+    let confirm =
+    document.getElementById("regConfirm").value;
+
+    let course =
+    document.getElementById("course").value;
+
+    let errors=[];
+
+
+    /* LOOP */
+
+    let fields=[
+        [name,"Name"],
+        [email,"Email"],
+        [password,"Password"],
+        [confirm,"Confirm Password"],
+        [course,"Course"]
+    ];
+
+
+    for(let i=0;i<fields.length;i++){
+
+        if(fields[i][0] === ""){
+
+            errors.push(
+                fields[i][1]+" is required"
+            );
+
+        }
+
+    }
+
+
+    /* CONDITIONAL STATEMENTS */
+
+    if(email !== "" &&
+       !email.includes("@")){
+
+        errors.push("Enter valid email");
+
+    }
+
+
+    if(password.length > 0 &&
+       password.length < 6){
+
+        errors.push(
+            "Password must have 6 characters"
+        );
+
+    }
+
+
+    if(password !== confirm){
+
+        errors.push(
+            "Passwords do not match"
+        );
+
+    }
+
+
+    let msg =
+    document.getElementById("regMsg");
+
+
+    if(errors.length > 0){
+
+        msg.innerHTML =
+        "❌ "+errors.join("<br>");
+
+        msg.className="message error";
+
+        msg.style.display="block";
+
+    }
+
+    else{
+
+        msg.innerHTML =
+        "🎉 Registration Successful!";
+
+        msg.className="message success";
+
+        msg.style.display="block";
+
+
+        /* SAVE DATA */
+
+        localStorage.setItem(
+            "studentName",name
+        );
+
+        localStorage.setItem(
+            "studentEmail",email
+        );
+
+        localStorage.setItem(
+            "studentCourse",course
+        );
+
+
+        /* PROFILE */
+
+        document.getElementById(
+            "profile"
+        ).style.display="block";
+
+        document.getElementById(
+            "profileName"
+        ).innerHTML=name;
+
+        document.getElementById(
+            "profileEmail"
+        ).innerHTML="📧 "+email;
+
+        document.getElementById(
+            "profileCourse"
+        ).innerHTML="🎓 "+course;
+
+        document.getElementById(
+            "profileLetter"
+        ).innerHTML=
+        name.charAt(0).toUpperCase();
+
+    }
+
+});
+
+
+/* =================================
+   LOGIN VALIDATION
+================================= */
+
+document.getElementById("loginForm")
+.addEventListener("submit",function(event){
+
+    event.preventDefault();
+
+    let email =
+    document.getElementById("loginEmail").value.trim();
+
+    let password =
+    document.getElementById("loginPassword").value;
+
+    let msg =
+    document.getElementById("loginMsg");
+
+
+    if(email === "" || password === ""){
+
+        showMessage(
+            msg,
+            "❌ Please fill all fields.",
+            "error"
+        );
+
+    }
+
+    else if(!email.includes("@")){
+
+        showMessage(
+            msg,
+            "❌ Invalid email.",
+            "error"
+        );
+
+    }
+
+    else if(password.length < 6){
+
+        showMessage(
+            msg,
+            "❌ Password is too short.",
+            "error"
+        );
+
+    }
+
+    else{
+
+        showMessage(
+            msg,
+            "✅ Login Successful! Welcome back 👋",
+            "success"
+        );
+
+    }
+
+});
+
+
+/* =================================
+   FEEDBACK RATING
+================================= */
+
+let selectedRating=0;
+
+
+function rate(number){
+
+    selectedRating=number;
+
+    let stars =
+    document.querySelectorAll(".star");
+
+
+    /* LOOP */
+
+    for(let i=0;i<stars.length;i++){
+
+        if(i < number){
+
+            stars[i].classList.add("active");
+
+        }
+
+        else{
+
+            stars[i].classList.remove("active");
+
+        }
+
+    }
+
+}
+
+
+/* =================================
+   CHARACTER COUNTER
+================================= */
+
+document.getElementById("comments")
+.addEventListener("input",function(){
+
+    document.getElementById("count")
+    .innerHTML=this.value.length;
+
+});
+
+
+/* =================================
+   FEEDBACK VALIDATION
+================================= */
+
+document.getElementById("feedbackForm")
+.addEventListener("submit",function(event){
+
+    event.preventDefault();
+
+    let name =
+    document.getElementById("feedName").value.trim();
+
+    let comments =
+    document.getElementById("comments").value.trim();
+
+    let msg =
+    document.getElementById("feedMsg");
+
+
+    let count=0;
+
+    let values=[
+        name,
+        selectedRating,
+        comments
+    ];
+
+
+    /* LOOP */
+
+    for(let i=0;i<values.length;i++){
+
+        if(values[i] !== "" &&
+           values[i] !== 0){
+
+            count++;
+
+        }
+
+    }
+
+
+    /* CONDITIONS */
+
+    if(count < 3){
+
+        showMessage(
+            msg,
+            "❌ Please complete all fields and give rating.",
+            "error"
+        );
+
+    }
+
+    else if(comments.length < 10){
+
+        showMessage(
+            msg,
+            "❌ Feedback must contain 10 characters.",
+            "error"
+        );
+
+    }
+
+    else{
+
+        showMessage(
+            msg,
+            "💙 Thank you "+name+
+            "! Your "+selectedRating+
+            "⭐ feedback was submitted.",
+            "success"
+        );
+
+        document.getElementById(
+            "feedbackForm"
+        ).reset();
+
+        document.getElementById(
+            "count"
+        ).innerHTML="0";
+
+        rate(0);
+
+        selectedRating=0;
+
+    }
+
+});
+
+
+/* =================================
+   COMMON MESSAGE FUNCTION
+================================= */
+
+function showMessage(element,message,type){
+
+    element.innerHTML=message;
+
+    element.className=
+    "message "+type;
+
+    element.style.display="block";
+
+}
+
+
+/* =================================
+   LOGOUT
+================================= */
+
+function logout(){
+
+    document.getElementById(
+        "profile"
+    ).style.display="none";
+
+    alert("👋 Logged out successfully!");
+
+}
+
+
+/* =================================
+   LOAD SAVED PROFILE
+================================= */
+
+window.addEventListener("load",function(){
+
+    let name =
+    localStorage.getItem("studentName");
+
+    let email =
+    localStorage.getItem("studentEmail");
+
+    let course =
+    localStorage.getItem("studentCourse");
+
+
+    if(name && email && course){
+
+        document.getElementById(
+            "profile"
+        ).style.display="block";
+
+        document.getElementById(
+            "profileName"
+        ).innerHTML=name;
+
+        document.getElementById(
+            "profileEmail"
+        ).innerHTML="📧 "+email;
+
+        document.getElementById(
+            "profileCourse"
+        ).innerHTML="🎓 "+course;
+
+        document.getElementById(
+            "profileLetter"
+        ).innerHTML=
+        name.charAt(0).toUpperCase();
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
